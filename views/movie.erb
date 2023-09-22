@@ -1,0 +1,36 @@
+<content class="flex column">
+	<div class="content_top flex space-between">
+		<div class="left grey_bg">
+			<div class="title grey_bg">
+				<h1 class="grey_bg"><%= @movie.title %></h1>
+			</div>
+			<div class="bottom flex grey_bg">
+				<h4 class="grey_bg"><%= @movie.release_year %></h1>
+				<h4 class="grey_bg"><%= @movie.runtime/60 %>h <%= @movie.runtime%60 %>m</h1>
+			</div>
+		</div>
+		<div class="right grey_bg flex column">
+			<div class="top flex">
+				<h4 class="grey_bg">IMDb RATING</h4>
+			</div>
+			<div class="bottom flex grey_bg">
+				<img src="/images/star.jpeg">
+				<h1 class="grey_bg"><%= @movie.ratings %>/10</h1>
+			</div>
+		</div>
+	</div>
+	<div class="content_middle grey_bg">
+		<img src="<%= @movie.poster %>">
+	</div>
+	<div class="content_bottom flex">
+		<div class="left flex column grey_bg">
+			<h4 class="grey_bg"><%= @movie.summary %></h4>
+			<h4 class="grey_bg">Director <span class="grey_bg" style="color: blue"><%= @movie.director %></span></h4>
+		</div>
+		<div class="right grey_bg flex">
+			<form class="grey_bg" action="" method="POST">
+				<button class="white">+ Add to watchlist</button>
+			</form>			
+		</div>
+	</div>
+</content>

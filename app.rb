@@ -68,6 +68,7 @@ post '/register' do
 end
 
 get '/movies/:id' do 
+	@movie = Movie.find(params[:id])
 	erb :movie
 end
 

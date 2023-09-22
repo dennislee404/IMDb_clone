@@ -29,7 +29,7 @@
 		<% @newest_movies.each do |movie|%>
 			<div class="movies">
 				<div class="poster flex">
-					<img src="<%= movie.poster %>"><br><br>
+					<a href="movies/<%= movie.id %>"><img src="<%= movie.poster %>"></a><br><br>
 				</div>
 				<div class="detail_box">
 					<div class="details flex">
@@ -54,7 +54,7 @@
 		<% @nolan_movies.each do |movie|%>
 			<div class="movies">
 				<div class="poster flex">
-					<img src="<%= movie.poster %>"><br><br>
+					<a href="movies/<%= movie.id %>"><img src="<%= movie.poster %>"></a><br><br>
 				</div>
 				<div class="detail_box">
 					<div class="details flex">

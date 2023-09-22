@@ -172,3 +172,89 @@ h4{
 .details{
 	justify-content: space-between;
 }
+
+content{
+	margin: 20px 10%;
+	padding: 10px;
+	width: 80%;
+	height: 80vh;
+	background-color: grey;
+	justify-content: space-between;
+}
+
+.space-between{
+	justify-content: space-between;
+}
+
+.bottom img{
+	width: 40px;
+}
+
+.content_middle img{
+	width: 200px;
+}
+
+.content_top{
+	height: 15%;
+}
+
+.content_middle{
+	height: 55%;
+}
+
+.content_bottom{
+	height: 30%;
+}
+
+.content_bottom .right{
+	width: 50%;
+}
+
+.left{
+	width: 60%;
+}
+
+.right{
+	width: 40%;
+	align-self: center;
+	justify-content: center;
+}
+
+.left .bottom{
+	gap: 30px;
+}
+
+.title h1{
+	font-size: 50px;
+}
+
+.left .title{
+	height: 70%;
+}
+
+.right .bottom{
+	height: 40%;
+}
+
+.right{
+	align-items: center;
+}
+
+.right form{
+	width: 100%;
+	align-self: flex-start;
+}
+
+.content_bottom .right{
+	height: 100%;
+}
+
+.content_bottom .left{
+	gap: 20px;
+}
+
+.right .top{
+	width: 100%;
+	height: 50%;
+	justify-content: center;
+}

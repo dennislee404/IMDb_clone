@@ -1,10 +1,75 @@
-<div class="movies_container flex">
+<div class="movies_container">
+	<h1>Highest Rating Movies of all time</h1>
 	<div class="movies_list flex">
-		<% @movies.each do |movie|%>
+		<% @highest_rating_movies.each do |movie|%>
 			<div class="movies">
-				<%= movie.title %>
+				<div class="poster flex">
+					<a href="movies/<%= movie.id %>"><img src="<%= movie.poster %>"></a><br><br>
+				</div>
+				<div class="detail_box">
+					<div class="details flex">
+						<div class="ratings flex">
+							<img src="/images/star.jpeg">
+							<h4><%= movie.ratings %></h4>
+						</div>
+						<h4><%= movie.release_year %></h4>
+					</div>
+					<a href="movies/<%= movie.id %>"><%= movie.title %></a>
+					<form action="" method="POST">
+						<button class="white">+ Add to watchlist</button>
+					</form>
+				</div>
 			</div>
 		<% end %>
 	</div>
 </div>
-
+<div class="movies_container">
+	<h1>Latest Movies</h1>
+	<div class="movies_list flex">
+		<% @newest_movies.each do |movie|%>
+			<div class="movies">
+				<div class="poster flex">
+					<img src="<%= movie.poster %>"><br><br>
+				</div>
+				<div class="detail_box">
+					<div class="details flex">
+						<div class="ratings flex">
+							<img src="/images/star.jpeg">
+							<h4><%= movie.ratings %></h4>
+						</div>
+						<h4><%= movie.release_year %></h4>
+					</div>
+					<a href="movies/<%= movie.id %>"><%= movie.title %></a>
+					<form action="" method="POST">
+						<button class="white">+ Add to watchlist</button>
+					</form>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>
+<div class="movies_container">
+	<h1>Movies by Christopher Nolan</h1>
+	<div class="movies_list flex">
+		<% @nolan_movies.each do |movie|%>
+			<div class="movies">
+				<div class="poster flex">
+					<img src="<%= movie.poster %>"><br><br>
+				</div>
+				<div class="detail_box">
+					<div class="details flex">
+						<div class="ratings flex">
+							<img src="/images/star.jpeg">
+							<h4><%= movie.ratings %></h4>
+						</div>
+						<h4><%= movie.release_year %></h4>
+					</div>
+					<a href="movies/<%= movie.id %>"><%= movie.title %></a>
+					<form action="" method="POST">
+						<button class="white">+ Add to watchlist</button>
+					</form>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>

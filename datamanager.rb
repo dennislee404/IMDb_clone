@@ -1,6 +1,12 @@
 require 'sinatra'
 require 'sinatra/activerecord'
 
+require 'carrierwave'
+require 'carrierwave/orm/activerecord'
+
+require_relative 'models/photouploader'
+require_relative 'models/movie'
+
 require 'csv'
 
 class DataManager
@@ -19,14 +25,18 @@ class DataManager
 		end
 	end
 
-	def self.update_movies(filename)
+	def self.update_movies(filename,movies)
 
 		CSV.foreach(filename, headers: true) do |row|
-			movie.update(poster: row[1])
+			movie = movies.find_by(title: row[1])
+			movie.update(poster: row[0])
 		end
 	end
 end
 
-DataManager.load_movies('public/imdb_top_1000.csv')
+# DataManager.load_movies('public/imdb_top_1000.csv')
+# DataManager.update_movies('public/imdb_top_1000.csv')
+# movie.update(casts:)
 
-movie.update(casts:)
+movies = Movie.all
+DataManager.update_movies('public/imdb_top_1000.csv',movies)

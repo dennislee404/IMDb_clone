@@ -3,6 +3,11 @@ require 'sinatra/activerecord'
 
 require 'bcrypt'
 
+require 'carrierwave'
+require 'carrierwave/orm/activerecord'
+
+require_relative 'models/photouploader'
+
 require_relative 'models/movie'
 require_relative 'models/review'
 require_relative 'models/user'
@@ -12,7 +17,9 @@ require_relative 'models/genre'
 enable :sessions
 
 get '/' do
-	@movies = Movie.take(12)
+	@highest_rating_movies = Movie.order(ratings: :desc).take(6)
+	@newest_movies = Movie.order(release_year: :desc).take(6)
+	@nolan_movies = Movie.where(director: "Christopher Nolan").order(ratings: :desc).take(6)
 
 	erb :index
 end
@@ -60,4 +67,7 @@ post '/register' do
 	end
 end
 
+get '/movies/:id' do 
+	erb :movie
+end
 

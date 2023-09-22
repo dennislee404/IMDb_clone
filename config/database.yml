@@ -1,4 +1,6 @@
 development:
   adapter: postgresql
-  database: sinatra_active_record
+  database: IMDb_clone
   host: localhost
+  user: postgres
+  password: Jul231960?

@@ -1,9 +1,12 @@
 source 'https://rubygems.org'
 
-ruby '3.2.1'
+ruby '3.2.2'
 
 gem 'sinatra'
 gem 'puma'
+
+# User Authentication
+gem 'bcrypt'
 
 # Database
 gem 'rake'

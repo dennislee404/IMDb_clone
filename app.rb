@@ -12,6 +12,8 @@ require_relative 'models/genre'
 enable :sessions
 
 get '/' do
+	@movies = Movie.take(12)
+
 	erb :index
 end
 
@@ -58,25 +60,4 @@ post '/register' do
 	end
 end
 
-require 'csv'
 
-class DataManager
-	def self.load_movies(filename)
-		movies = []
-
-		CSV.foreach(filename, headers: true) do |row|
-			movie = Movie.create(
-				title: row[1],
-				release_year: row[2],
-				runtime: row[4],
-				ratings: row[6],
-				summary: row[7],
-				director: row[9],
-				gross: row[15],				
-				)
-		end
-		movie
-	end
-end
-
-load_movies('imdb_top_1000.csv')

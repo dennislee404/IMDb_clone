@@ -3,8 +3,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Elevate - Sinatra ActiveRecord</title>
+  <link rel="website icon" href="images/icon.png">
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+  <nav class="flex">
+    <img src="images/imdb.png" class="logo">
+    <div class="menu">
+      Menu
+    </div>
+    <div class="search_bar">
+      search bar
+    </div>
+    <a href="/login">Sign In</a>
+  </nav>
   <%= yield %>
 </body>
 </html>

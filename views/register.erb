@@ -1,22 +1,30 @@
-This is registration page
+<div class="login_section flex">
+	<a href="/"><img src="images/imdb.png"></a>
 
-<form action="/register" method="POST">
-	<h2>Register</h2>
-	<div class="inputbox">
-		<input type="text" name="email" required>
-		<label for="email">EMAIL</label>
-	</div>	
-	<div class="inputbox">
-		<input type="text" name="username" required>
-		<label for="username">USERNAME</label>
+	<div class="container">
+		<form action="/login" method="POST">
+			<div class="login_box">
+				<h1>Create account</h1>
+				<div class="inputbox">
+					<label for="name">Your name</label>
+					<input type="text" name="name" value="First and last name" required>	
+				</div>
+				<div class="inputbox">
+					<label for="email">Email</label>
+					<input type="text" name="email" required>	
+				</div>
+				<div class="inputbox">
+					<label for="password">Password</label>
+					<input type="password" name="password" required>
+					Passwords must be at least 8 characters.	
+				</div>
+				<div class="inputbox">
+					<label for="confirm_password">Re-enter password</label>
+					<input type="password" name="confirm_password" required>	
+				</div>
+				<button class="yellow">Create your IMDb account</button>
+			</div><br>
+			Already have an account? <a style="color: blue" href="/login">Sign in</a>
+		</form>
 	</div>
-	<div class="inputbox">
-		<input type="password" name="password" required>
-		<label for="password">PASSWORD</label>
-	</div>
-	<div class="inputbox">
-		<input type="password" name="password_confirmation" required>
-		<label for="password_confirmation">CONFIRM PASSWORD</label>
-	</div>			
-	<button>Register</button>
-</form>
+</div>

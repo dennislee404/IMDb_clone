@@ -1,17 +1,26 @@
-this is login page
+<div class="login_section flex">
+	<a href="/"><img src="images/imdb.png"></a>
 
-<form action="/login" method="POST">
-	<h2>Login</h2>
-	<div class="inputbox">
-		<input type="username" name="username" required>
-		<label for="username">USERNAME</label>
+	<div class="container">
+		<form action="/login" method="POST">
+			<div class="login_box">
+				<h1>Sign In</h1>
+				<div class="inputbox">
+					<label for="email">Email</label>
+					<input type="text" name="email" required>	
+				</div>
+				<div class="inputbox">
+					<div class="row flex">
+						<label for="password">Password</label>
+						<a href="">Forgot your password?</a>
+					</div>	
+					<input type="password" name="password" required>	
+				</div>
+				<button class="yellow">Sign In</button>
+			</div>
+		</form>
+		<form action="/register" method="GET">
+			<button class="white">Create your IMDb account</button>
+		</form>
 	</div>
-	<div class="inputbox">
-		<input type="password" name="password" required>
-		<label for="password">PASSWORD</label>
-	</div>
-	<button>Login</button>
-	<div class="link">
-		<p><a href="/register">Create a new account</a></p>
-	</div>
-</form>
+</div>

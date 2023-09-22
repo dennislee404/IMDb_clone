@@ -1,1 +1,10 @@
-this is index page
+<div class="movies_container flex">
+	<div class="movies_list flex">
+		<% @movies.each do |movie|%>
+			<div class="movies">
+				<%= movie.title %>
+			</div>
+		<% end %>
+	</div>
+</div>
+

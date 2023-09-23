@@ -1,3 +1,7 @@
+rake db:create 
+rake db:migrate 
+datamanager.rb (to import movie data into database)
+
 Your task is to create a simplified version of the popular Internet Movie Database (IMDb) as a web application using Sinatra, a lightweight Ruby web framework. The IMDb clone should allow users to browse for movies, view detailed information about each movie, and leave reviews and ratings. You'll be building the foundation of a movie database application with a user-friendly interface.
 
 Basic Requirements:

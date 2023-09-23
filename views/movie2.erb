@@ -1,0 +1,44 @@
+<content class="flex column grey_bg" >
+	<div class="content_top flex grey_bg">
+		<div class="left flex column">
+			<div class="title flex grey_bg">
+				<h1 class="grey_bg"><%= @movie.title %></h1>
+			</div>
+			<div class="bottom flex">
+				<div class="year flex grey_bg">
+					<h4 class="grey_bg"><%= @movie.release_year %></h4>
+				</div>
+				<div class="runtime flex grey_bg">
+					<h4 class="grey_bg"><%= @movie.runtime/60 %>h <%= @movie.runtime%60 %>m</h4>
+				</div>
+			</div>
+		</div>
+		<div class="right">
+			<div class="top flex grey_bg">
+				<h4 class="grey_bg">IMDb RATING</h4>
+			</div>
+			<div class="bottom flex grey_bg">
+				<img src="/images/star.jpeg">
+				<h1 class="grey_bg"><%= @movie.ratings %>/10</h1>
+			</div>
+		</div>
+	</div>
+	<div class="content_middle flex">
+		<img src="<%= @movie.poster %>">
+	</div>
+	<div class="content_bottom flex">
+		<div class="left">
+			<div class="summary grey_bg">
+				<h4 class="grey_bg"><%= @movie.summary %></h4>
+			</div>
+			<div class="director grey_bg">
+				<h4 class="grey_bg">Director <span class="grey_bg" style="color: blue"><%= @movie.director %></span></h4>
+			</div>
+		</div>
+		<div class="right grey_bg">
+			<form class="grey_bg" action="" method="POST">
+				<button class="white">+ Add to watchlist</button>
+			</form>
+		</div>
+	</div>
+</content>

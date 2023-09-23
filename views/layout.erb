@@ -3,17 +3,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Elevate - Sinatra ActiveRecord</title>
-  <link rel="website icon" href="images/icon.png">
+  <link rel="website icon" href="/images/icon.png">
   <link rel="stylesheet" href="/style.css">
 </head>
-<body>
+<body style="background: black;">
   <nav class="flex">
-    <img src="images/imdb.png" class="logo">
+    <a href="/"><img class="logo" src="/images/imdb.png"></a>
     <div class="menu">
       Menu
     </div>
-    <div class="search_bar">
-      search bar
+    <div class="search-box flex">
+      <input type="text" placeholder="Search IMDb">
+      <img src="/images/search.png" class ="search-icon">
     </div>
     <a href="/login">Sign In</a>
   </nav>

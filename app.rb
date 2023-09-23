@@ -16,6 +16,11 @@ require_relative 'models/genre'
 
 enable :sessions
 
+def current_user
+	@current_user ||= User.find_by(id: session[:user_id])
+end
+
+
 get '/' do
 	@highest_rating_movies = Movie.order(ratings: :desc).take(6)
 	@newest_movies = Movie.order(release_year: :desc).take(6)
@@ -24,12 +29,8 @@ get '/' do
 	erb :index
 end
 
-def current_user
-	@current_user ||= User.find_by(id: session[:user_id])
-end
-
 get '/login' do
-	erb :login
+	erb :login , :layout => :layout2
 end
 
 post '/login' do 
@@ -49,7 +50,7 @@ post '/logout' do
 end
 
 get '/register' do 
-	erb :register
+	erb :register, :layout => :layout2
 end
 
 post '/register' do 
@@ -69,6 +70,6 @@ end
 
 get '/movies/:id' do 
 	@movie = Movie.find(params[:id])
-	erb :movie
+	erb :movie2
 end
 

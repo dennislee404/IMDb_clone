@@ -21,6 +21,6 @@ class Review < ActiveRecord::Base
 
 	def update_review_count
 		review_count = movie.review_count + 1
-		review.update_column(:review_count, review_count)
+		movie.update_column(:review_count, review_count)
 	end
 end

@@ -19,7 +19,7 @@
 			</div>
 			<div class="bottom flex grey_bg">
 				<img src="/images/star.jpeg">
-				<h1 class="grey_bg"><%= @movie.ratings %>/10</h1>
+				<h1 class="grey_bg"><%= sprintf('%.1f', @movie.ratings) %>/10</h1>
 			</div>
 		</div>
 	</div>

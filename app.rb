@@ -83,8 +83,9 @@ end
 get '/review/:id' do 
 	if user_signed_in?
 		@movie = Movie.find(params[:id])
+		@reviews = Review.where(movie_id: params[:id])
 
-		erb :review, :layout => :layout2
+		erb :review
 	else
 		redirect '/login'
 	end
@@ -92,7 +93,13 @@ end
 
 post '/review/:id' do 
 	@movie = Movie.find(params[:id])
+	@review = current_user.reviews.create(score: params[:score], content: params[:review_content], movie_id: params[:id])
+	@reviews = Review.where(movie_id: params[:id])
 
-	erb :movie2
+	if @review.save
+		redirect "/movies/#{@movie.id}"
+	else
+		erb :review
+	end
 end
 

@@ -18,6 +18,10 @@ h1 {
 	display: flex;
 }
 
+.black_font {
+	color: black;
+}
+
 nav {
 	height: 50px;
 	padding: 5px 2%;
@@ -276,7 +280,6 @@ content{
 
 .content_bottom{
 	height: 30%;
-	background-color: blue;
 }
 
 .content_bottom .left{
@@ -329,5 +332,82 @@ content{
 	align-self: flex-start;
 }
 
+.review_page{
+	padding: 50px;
+	justify-content: space-between;
 
+}
 
+.review_section{
+	background-color: white;
+	width: 55%;
+}
+
+.title_block{
+	gap: 20px;
+}
+
+.title_block img{
+	width: 120px;
+}
+
+.title_block a{
+	font-size: 40;
+}
+
+.title_block .right{
+	justify-content: space-around;
+	width: 100%;
+	gap: 20px;
+}
+
+.title_block .right .bottom{
+	gap: 30px;
+}
+
+.lister{
+	padding: 20px;
+	height: 100vh;
+	gap: 20px;
+}
+
+.lister .reviews{
+	gap: 20px;
+}
+
+.review_description{
+	gap: 20px;
+}
+
+.reviews img{
+	width: 50px;
+	height: 50px;
+}
+
+.review_box{
+	background-color: white;
+	height: 80vh;
+	width: 40%;
+	position: sticky;
+	top: 110;
+	gap: 20px;
+}
+
+.review_box form{
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.review_box .number{
+	width: 200px;
+	height: 40px;
+}
+
+.review_box .text{
+	overflow: auto;
+	width: 200px;
+	height: 200px;
+	vertical-align: top;
+}

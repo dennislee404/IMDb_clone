@@ -1,1 +1,45 @@
-<h1 style="color: black">WRITE YOUR REVIEW HERE</h1>
+<div class="review_page flex">
+	<div class="review_section">
+		<div class="title_block flex">
+			<a href="/movies/<%= @movie.id %>"><img src="<%= @movie.poster %>"></a>
+			<div class="right flex column">
+				<a class="black_font" href="/movies/<%= @movie.id %>"><%= @movie.title %></a>
+				<h4 class="black_font">by <%= @movie.director %></h4>	
+				<div class="bottom flex">
+					<div class="year flex">
+						<h4 class="black_font"><%= @movie.release_year %></h4>
+					</div>
+					<div class="runtime flex">
+						<h4 class="black_font"><%= @movie.runtime/60 %>h <%= @movie.runtime%60 %>m</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="lister">
+			<h2>Reviews</h2><br>
+			<% if @reviews.any? %>
+				<% @reviews.each do |review|%>
+					<div class="reviews flex">
+						<img src="/images/blank-profile-pic.png">
+						<div class="review_description flex">
+							<%= User.find(review.user_id).username %> (<%= sprintf('%.1f', review.score) %>/10)<br>
+							<%= review.content %>
+						</div>
+					</div>
+				<% end %>
+			<% else %>
+				No reviews yet
+			<% end %>	
+		</div>
+	</div>
+	<div class="review_box">
+		<form action="/review/<%= @movie.id %>" method="POST">
+	 		<h1 class="black_font">YOUR RATING</h1>
+	 		<input class="number" type="number" name="score" min=1 max=10>
+	 		<h1 class="black_font">YOUR REVIEW</h1>
+			<textarea placeholder="Write a headline for your review here" name="review_headline" maxlength="200" rows="2"></textarea>
+			<textarea placeholder="Write your review here" name="review_content"maxlength="1000" rows="6"></textarea>
+			<button>Submit</button>
+	 	</form>
+	</div>
+</div>

@@ -13,7 +13,7 @@ Basic Requirements:
 	- (DONE) Include a section for user reviews and ratings for each movie.
 	- (IN PROGRESS) Display movie trailers on movie detail pages.
 4. User Reviews and Ratings:
-	- (IN PROGRESS) Allow registered users to leave reviews and ratings for movies.
+	- (DONE) Allow registered users to leave reviews and ratings for movies.
 	- (DONE) Display the average rating and individual user reviews on the movie detail page.
 5. User Profiles:
 	- (IN PROGRESS) Create user profiles that display user information, such as their username, profile picture (optional), and a list of their reviews and ratings.

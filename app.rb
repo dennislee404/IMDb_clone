@@ -20,6 +20,9 @@ def current_user
 	@current_user ||= User.find_by(id: session[:user_id])
 end
 
+def user_signed_in?
+	current_user != nil
+end
 
 get '/' do
 	@highest_rating_movies = Movie.order(ratings: :desc).take(6)
@@ -34,7 +37,7 @@ get '/login' do
 end
 
 post '/login' do 
-	@user = User.find_by(username: params[:username])
+	@user = User.find_by(email: params[:email])
 
 	if @user && @user.authenticate(params[:password])
 		session[:user_id] = @user.id
@@ -44,9 +47,9 @@ post '/login' do
 	end
 end
 
-post '/logout' do 
+get '/logout' do 
 	session[:user_id] = nil
-	redirect '/login'
+	redirect '/'
 end
 
 get '/register' do 
@@ -68,8 +71,28 @@ post '/register' do
 	end
 end
 
+get '/profile' do 
+	erb :profile
+end
+
 get '/movies/:id' do 
 	@movie = Movie.find(params[:id])
+	erb :movie2
+end
+
+get '/review/:id' do 
+	if user_signed_in?
+		@movie = Movie.find(params[:id])
+
+		erb :review, :layout => :layout2
+	else
+		redirect '/login'
+	end
+end
+
+post '/review/:id' do 
+	@movie = Movie.find(params[:id])
+
 	erb :movie2
 end
 

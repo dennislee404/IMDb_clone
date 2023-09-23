@@ -16,7 +16,12 @@
       <input type="text" placeholder="Search IMDb">
       <img src="/images/search.png" class ="search-icon">
     </div>
-    <a href="/login">Sign In</a>
+    <% if user_signed_in? %>
+      <a href="/logout">Logout</a>
+      <a href="/profile"><img style="width: 50px; border-radius: 50%;" src="<%= current_user.avatar %>"></a>
+    <% else %>
+      <a href="/login">Sign In</a>
+    <% end %> 
   </nav>
   <%= yield %>
 </body>

@@ -1,0 +1,6 @@
+<form action="/update-profile" method="POST" enctype="multipart/form-data">
+	<h4><label for="avatar">Upload a photo here:</label><br><br>
+	<input class="custom-button" type="file" name="avatar" value="Upload a Picture!"><br></h4>
+	<h1><input type="text" name="username" value="<%= current_user.username %>"></h1>
+	<button>Submit</button>
+</form>

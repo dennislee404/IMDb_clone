@@ -16,6 +16,10 @@ require_relative 'models/genre'
 
 enable :sessions
 
+CarrierWave.configure do |config|
+	config.root = './public'
+end
+
 def current_user
 	@current_user ||= User.find_by(id: session[:user_id])
 end
@@ -33,7 +37,11 @@ get '/' do
 end
 
 get '/login' do
-	erb :login , :layout => :layout2
+	if user_signed_in?
+		redirect '/'
+	else 
+		erb :login , :layout => :layout2
+	end	
 end
 
 post '/login' do 
@@ -53,7 +61,11 @@ get '/logout' do
 end
 
 get '/register' do 
-	erb :register, :layout => :layout2
+	if user_signed_in?
+		erb :register, :layout => :layout2
+	else
+		redirect '/login'
+	end		
 end
 
 post '/register' do 
@@ -72,7 +84,26 @@ post '/register' do
 end
 
 get '/profile' do 
-	erb :profile
+	if user_signed_in?
+		@reviews = Review.where(user_id: current_user.id)
+		erb :profile
+	else
+		redirect '/login'
+	end
+end
+
+get '/update-profile' do 
+	if user_signed_in?
+		erb :update_profile
+	else
+		redirect '/login'
+	end
+end
+
+post '/update-profile' do 
+	current_user.update(avatar: params[:avatar], username: params[:username])
+
+	redirect '/profile'
 end
 
 get '/movies/:id' do 

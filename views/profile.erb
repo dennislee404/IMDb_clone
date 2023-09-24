@@ -1,3 +1,10 @@
-<h1 style="color: white">EDIT USER PROFILE HERE<br>
--CHANGE NAME<br>
--CHANGE PROFILE PIC</h1>
+<h1><%= current_user.username %></h1>
+<img src="<%= current_user.avatar %>">
+<form action="/update-profile" method="GET">
+	<button>Edit Profile</button>
+</form>
+<br><br>
+<h1>Past Reviews</h1><br>
+<% @reviews.each do |review| %>
+	<h1>- <%= review.content %> (<%= review.score %>/10)</h1><br>
+<% end %>
